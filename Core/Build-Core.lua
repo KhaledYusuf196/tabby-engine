@@ -4,6 +4,9 @@ project "Core"
    cppdialect "C++20"
    targetdir "Binaries/%{cfg.buildcfg}"
    staticruntime "off"
+   
+   pchheader "EnginePCH.h"
+   pchsource "Source/EnginePCH.cpp"
 
    files { "Source/**.h", "Source/**.cpp" }
 
@@ -17,7 +20,7 @@ project "Core"
 
    filter "system:windows"
        systemversion "latest"
-       defines { }
+       defines { "WINDOWS" }
 
    filter "configurations:Debug"
        defines { "DEBUG" }
